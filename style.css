@@ -1,0 +1,636 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;;
+}
+body{
+    background-image: linear-gradient(to right, #F5EDED,#E2DAD6);
+    object-fit: cover;
+    background-position: fixed;
+    background-size: cover;
+}
+
+
+/*background*/
+.bush{
+    position: fixed;
+    z-index: -1;
+    bottom: 40vh;
+    width: 30%;
+    display: none;
+}
+.vine{
+    position: fixed;
+    z-index: -1;
+    bottom: -20vh;
+    left: 50vh;
+    width: 100%;
+    display: none;
+    filter: drop-shadow(10px 10px 20px rgb(4, 4, 4))
+}
+
+
+/*notify*/
+.notify{
+    position: absolute;
+    top: 6vh;
+    left: 2vh;
+    width: 200px;
+    height: 50px;
+    border: solid dodgerblue;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition-delay: 1s;
+}
+.container{
+    width: 100%;
+    height: 330vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+                        "header"
+                        "search"
+                        "main"
+                        "footer"
+                        ;
+}
+
+/*navBar*/
+.navBar{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-bottom: solid #E2DAD6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: header;
+}
+.navBar i {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: dodgerblue
+}
+.searchBar{
+    margin-right: 2vh;
+    display: flex;
+    font-size: 0.5rem;
+    gap: 40px;
+}
+.searchBar i{
+    font-size: 1.2rem;
+}
+.barText{
+    display: none;
+    gap: 20px;
+}
+
+#favorite{
+    cursor: pointer;
+}
+.new{
+    font-size: 0.65rem;
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    color: white;
+}
+
+/*create effect below navBar*/
+.discoverBar::before{
+    content:"";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top:4vh;
+    left: auto;
+    background-color: dodgerblue;
+    transition: 0.5s ;
+}
+
+.discoverBar:hover::before{
+    width: 20%;
+}
+.favoriteBar::before{
+    content:"";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 4vh;
+    left: auto;
+    background-color: dodgerblue;
+    transition: 0.5s ;
+}
+.favoriteBar:hover::before{
+    width:20%;
+}
+.filterBar::before{
+    content:"";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 4vh;
+    left: auto;
+    background-color: dodgerblue;
+    transition: 0.5s ;
+}
+.filterBar:hover::before{
+    width: 20%;
+}
+
+
+
+/*search Engine*/
+.searchEngine{
+    display: grid;
+    width: 100%;
+    height: 20vh;
+    align-items: center;
+    justify-content: center;
+    grid-area: search;
+}
+.searchInput{
+    width: 400px;
+    height: 80px;
+    border: solid dodgerblue;
+    border-radius: 10px;
+    outline: none;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.searchInput input{
+    border: none;
+    outline:  none;
+    width: 70%;
+    overflow: hidden;
+    font-size: 1.2rem;
+}
+.searchInput i{
+    margin-left: 30px;
+}
+::-webkit-input-placeholder {
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.find{
+   text-align: center;
+   width: 15%;
+   height:  100%;
+   border: none;
+   border-radius: 0px;
+   border-left: solid dodgerblue;
+   border-radius: 10px;
+   border-top-left-radius: 0px;
+   border-bottom-left-radius: 0px;
+   font-size: 1.2rem;
+   background-color:white;
+   color: black;
+   font-family: "Poppins", sans-serif;;
+}
+.find:hover{
+    font-weight: 500;
+    color: dodgerblue;
+}
+
+
+
+
+
+/* Menu List */
+.menuList{
+    position: fixed;
+    width: 60%;
+    height: 100%;
+    background-color:white;
+    border-right: solid #E2DAD6;
+    align-items: top;
+    display: none;
+    flex-direction: column;
+    
+}
+.crossButton{
+    display: flex;
+    align-items: top;
+    margin-top: 3vh;
+    gap: 120px;
+    justify-content: center;
+}
+.crossButton button{
+    height: 30px;
+    width: 100px;
+    border: solid #E2DAD6 ;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: white;
+}
+.crossButton i{
+    font-size: 2rem;
+}
+.detailSection{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10vh;
+    margin-left: 100px;
+}
+
+
+
+/* Content */
+.content{
+    display:none;
+    justify-content: center;
+    grid-template-rows: auto;
+    grid-template-columns: repeat( auto-fit, minmax(400px, 1fr) );
+    justify-items: center;
+    overflow: hidden;
+}
+.card{
+    border:none;
+    background-color: white;
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 2px 2px 5px grey;
+}
+.card:hover{
+    transform: scale(1.01);
+}
+
+
+/*Card detail */
+.card img{
+    z-index: 1;
+}
+.cardDetail{
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: space-between;
+    gap: 10px;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+.cardDetail :nth-child(1){
+    background-color: white;
+    padding: 10px;
+    border: solid dodgerblue;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 10px;
+}
+.cardDetail :nth-child(2){
+    background-color: white;
+    padding: 10px;
+    border: solid dodgerblue;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 10px;
+}
+.cardDetail :nth-child(3){
+    margin-top: 5px;
+    font-size: 1.5rem;
+    color: grey;
+    cursor: default;
+}
+.distance{
+    display: flex;
+    flex-direction: column;
+    justify-content: start ;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    margin-top: 1vh;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.distance i{
+    display: flex;
+    gap:15px;
+    color: dodgerblue;
+    margin-left: 2vh;
+}
+.distanceText{
+    font-size: 0.9rem;
+    color: black;
+    margin-top: 0.5vh;
+    font-weight: 500;
+}
+.discover{
+    margin-top: 10px;
+    position: relative;
+    width:100%;
+    height: 5dvh;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: dodgerblue;
+}
+.discover span{ 
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+
+/* Filter setting */
+
+.filterBox{
+    position: fixed;
+    width: 200px;
+    height: 0px;
+    border:solid dodgerblue;
+    border-top: none;
+    background-color: white;
+    z-index: 1;
+    left: 25vh;
+    top: 10vh;
+    transition: all 0.5s;
+    transform:translateY(2px);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.budget{
+    position: relative;
+    width: 50%;
+    height: 40px;
+    top: 100vh;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid dodgerblue
+}
+
+
+/*footer*/
+.footer{
+    width: 100%;
+    height: auto;
+    display:flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: end;
+    grid-area: footer;
+    
+}
+.footBox{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+}
+.boxI{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: solid #E2DAD6;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+
+/*discover card */
+.discoverCard{
+    display:grid;
+    justify-content: center;
+    grid-template-rows: auto;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    justify-items: center;
+    overflow: hidden;
+}
+.cardI{
+    border:none;
+    background-color: white;
+    width: 250px;
+    height: 230px;
+    position: relative;
+    border-radius: 15px;
+    margin-top: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px grey;
+    text-align: center;
+    margin-bottom: 2.2vh;
+}
+.cardI img{
+    opacity: 1;
+    width: 100%;
+    height: auto;
+}
+.discoverType {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 10px dodgerblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+.cardI:hover{
+    transform: translateY(5px);
+}
+
+
+
+
+
+
+
+/*media*/
+@media (max-width: 475px) {
+    .container{
+        height: auto;
+    }
+    .background{
+        position: fixed;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .background{
+        height: auto;
+    }
+    .searchEngine{
+        height: 10vh;
+    }
+    .searchInput{
+        width: 300px;
+        height: 50px;
+    }
+    ::-webkit-input-placeholder {
+        color: black;
+        font-weight: 500;
+        font-size: 0.6rem;
+    }
+    .find{
+        font-size: 0.8rem;
+    }
+    .footer{
+        display: none;
+    }
+    .barText{
+        display: flex;
+    }
+    .fa-solid.fa-bars{
+        display: none;
+    }
+}
+@media (min-width: 475px) {
+    .container{
+        height: auto;
+    }
+    .searchEngine{
+        height: 10vh;
+    }
+    .searchInput{
+        width: 400px;
+        height: 60px;
+    }
+    ::-webkit-input-placeholder {
+        color: black;
+        font-weight: 500;
+        font-size: 0.74rem;
+    }
+    .find{
+        font-size: 1rem;
+    }
+    .footer{
+        display: none;
+    }
+    .barText{
+        display: flex;
+        margin-left: 10vh;
+    }
+    .fa-solid.fa-bars{
+        display: none;
+    }
+    .filter{
+        top: 11vh;
+    }
+    .discoverBar:hover::before{
+        width: 12%;
+    }
+    .favoriteBar:hover::before{
+        width: 12%;
+    }
+    .filterBar:hover::before{
+        width: 12%;
+    }
+@media (min-width:678) {
+
+}
+} 
+@media (min-width: 768px) {
+    .background{
+        height: auto;
+    }
+    .searchEngine{
+        height: 10vh;
+    }
+    .searchInput{
+        width: 700px;
+        height: 60px;
+    }
+    ::-webkit-input-placeholder {
+        color: black;
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+    .find{
+        font-size: 1.2rem;
+    }
+    .discoverBar:hover::before{
+        width: 7%;
+    }
+    .favoriteBar:hover::before{
+        width: 7%;
+    }
+    .filterBar:hover::before{
+        width: 7%;
+    }
+    .filterBox{
+        top: 5.5vh;
+        left: 15vh;
+    }
+} 
+@media (min-width: 1024px) {
+    .container{
+        height: auto;
+    }
+
+    .content{
+        grid-template-columns: repeat(3, 1fr) ;
+    }
+    .fa-solid.fa-bars{
+        display: none;
+    }
+    .barText{
+        display: flex;
+        margin-left: 5vh;
+    }
+    body{
+        margin-bottom: 5vh;
+    }
+    .background{
+        height: auto;
+    }
+    .footer{
+        display: none;
+        height: 30vh;
+        border: solid black;
+        background-color: rgb(175, 169, 169);
+    }
+    .footBox{
+        display: none;
+    }
+    .bush{
+        display: flex;
+    }
+    .vine{
+        display: flex;
+    }
+    .discoverBar:hover::before{
+        width: 5%;
+    }
+    .favoriteBar:hover::before{
+        width: 5%;
+    }
+    .filterBar:hover::before{
+        width: 5%;
+    }
+} 
+@media (min-width: 1280px) {
+    .container{
+        height: auto;
+    }
+    .content{
+        grid-template-columns: repeat(4, 4fr) ;
+    }
+}
+
+

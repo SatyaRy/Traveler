@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Der Leng</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <img class ="bush"src="/asset/branch.svg" alt="">
+    <!--NavBar-->
+    <div class ="container">
+        <div class ="notify">
+            <h4 class ="notifyMessage">Added to favorite</h4>
+        </div>
+        <nav class ="navBar">
+            <i class="fa-solid fa-bars"></i>
+            <div class ="barText">
+                <h4 class ="discoverBar" id ="discover" onclick ="displayDiscover()">Discover</h4>
+                <h4 class ="favoriteBar"id ="favorite" onclick ="displayFavorite()">Favorite</h4>
+                <h4 class ="filterBar" onclick ="filter()">Filter<sup class="new">New</sup></h4>
+            </div>
+            <!--filter-->
+            <div id ="filterBox">
+                <h4 class ="budget">100 $</h4>
+                <h4 class ="budget">100 $</h4>
+                <h4 class ="budget">100 $</h4>
+                <h4 class ="budget">100 $</h4>
+         </div>
+            <div class ="searchBar">
+                <i class="fa-solid fa-bell"></i>
+                <i class="fa-regular fa-message"></i>
+            </div>
+        </nav>
+        <div class ="menuList">
+            <div class ="crossButton">
+                <i class="fa-solid fa-xmark"></i>
+                <button>Profile</button>
+            </div>
+            <div class ="detailSection">
+                <h4>Discover</h4>
+                <h4>Favorite</h4>
+                <h4>Camping</h4>
+            </div>
+        </div>
+        <!--Search and filter engine-->
+        <div class ="searchEngine">
+            <div class ="searchInput">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id ="searchValue"type="text " placeholder="Discover amazing place in Cambodia">
+                <button id ="findButton" class ="find">Find</button>
+                <button id ="views"class ="find">View</button>
+            </div>
+        </div>
+
+        <!--content-->
+        <div class ="content">
+            <!--<div class ="card">   
+               <div class ="extra"><div class ="bookMark"></div> </div>
+                <img src="/img/anatara.svg" alt="">
+                <div class ="cardDetail">
+                    <h4>Camping</h4>
+                    <h4>Siem Reap</h4>
+                    <i id ="heart"class="fa-solid fa-heart"></i>
+                </div>    
+                <div class ="distance">
+                    <i class="fa-regular fa-map"><span class ="distanceText">SiemReap,Angkor</span></i>
+                    <i class="fa-solid fa-sack-dollar"><span class ="distanceText">Average spend per day 30$</span></i>
+                    <i class="fa-solid fa-car"><span class ="distanceText">Travel Distance 30 <sup>km</sup></span></i>
+                    <i class="fa-regular fa-clock"><span class ="distanceText">Travel Time 5 h 30 mins</span></i>
+                </div> 
+                <button class ="discover"><span>Discover More</span></button>
+            </div>-->
+          </div>
+          <!--Filter--------->
+          <!--Discover card-->
+          <div class ="discoverCard"> 
+                <div class ="cardI" onclick ="discoverData('type','Mountain')">
+                    <img src="img/mountain.svg" alt="">
+                    <h4 class ="discoverType">Mountain</h4>
+                </div>
+                <div class ="cardI" onclick ="discoverData('type','Beach')">
+                    <img src="img/beachI.svg" alt="">
+                    <h4 class ="discoverType">Beach</h4>
+                </div>
+                <div class ="cardI" onclick ="discoverData('type','Camping')">
+                    <img src="img/camping.svg" alt="">
+                    <h4 class ="discoverType">Camping</h4>
+                </div>
+                <div class ="cardI" onclick ="discoverData('type','Fishing')">
+                    <img src="img/fishing.svg" alt="">
+                    <h4 class ="discoverType">Fishing</h4>
+                </div>
+                <div class ="cardI" onclick ="discoverData('type','Temple')">
+                    <img src="img/temple.svg" alt="">
+                    <h4 class ="discoverType">Temple</h4>
+                </div>
+                <div class ="cardI" onclick ="discoverData('type','Lake')">
+                    <img src="img/lake.svg" alt="">
+                    <h4 class ="discoverType">Lake</h4>
+                </div>
+          </div>
+        <!--Footer menu-->
+        <div class ="footer">
+               <div class ="footBox">
+                 <div class ="boxI">
+                    <i onclick ="displayDiscover()"class="fa-solid fa-house"></i>
+                    <i onclick ="displayFavorite()" class="fa-regular fa-heart"></i>
+                    <i onclick ="filter()"class="fa-solid fa-sliders"></i>
+                    <i class="fa-regular fa-user"></i>
+                </div>
+               </div>
+        </div>  
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src = "./src/favorite.js"></script>
+    <script src ="./src/content.js"></script>
+</body>
+</html>
